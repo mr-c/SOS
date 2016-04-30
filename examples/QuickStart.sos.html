@@ -472,7 +472,13 @@ body {
   </div>
  <div itemprop="text" class="blob-wrapper data type-python">
 
-<table class="highlight tab-size js-file-line-container"><div class="source blob-code sos-comment"><pre><span></span><span class="ch">#!/usr/bin/env sos-runner</span>
+<table class="highlight tab-size js-file-line-container"><tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="ch">#!/usr/bin/env sos-runner</span>
 <span class="c1">#fileformat=SOS1.0</span>
  
 <span class="c1"># This script aligns raw reads of a control and a mutated sample</span>
@@ -480,76 +486,88 @@ body {
 <span class="c1"># of the samples at genes A, B and C.</span>
  
 </pre></div>
-
-<div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="n">parameters</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>8</pre></div></td><td class="code"><div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="n">parameters</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-comment"><pre><span></span><span class="c1"># Two input files in .fasta formats. The first one for control sample</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre> 9
+10</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="c1"># Two input files in .fasta formats. The first one for control sample</span>
 <span class="c1"># and the second one for mutated sample.</span>
 </pre></div>
-
-<div class="source blob-code sos-statement"><pre><span></span><span class="n">fasta_files</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;control.fasta&#39;</span><span class="p">,</span> <span class="s1">&#39;mutated.fasta&#39;</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>11
+12</pre></div></td><td class="code"><div class="source blob-code sos-statement"><pre><span></span><span class="n">fasta_files</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;control.fasta&#39;</span><span class="p">,</span> <span class="s1">&#39;mutated.fasta&#39;</span><span class="p">]</span>
  
 </pre></div>
-
-<div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>13</pre></div></td><td class="code"><div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-comment"><pre><span></span><span class="c1"># create a index for reference genome</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>14</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="c1"># create a index for reference genome</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;STAR_index/chrName.txt&#39;</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>15</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;STAR_index/chrName.txt&#39;</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">run:</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>16</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">run:</span>
 </pre></div>
-
-<div class="source blob-code sos-script "><pre><span></span>STAR --runMode genomeGenerate --genomeFastaFile human38.fasta --genomeDir STAR_index
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>17
+18</pre></div></td><td class="code"><div class="source blob-code sos-script "><pre><span></span>STAR --runMode genomeGenerate --genomeFastaFile human38.fasta --genomeDir STAR_index
  
 </pre></div>
-
-<div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>19</pre></div></td><td class="code"><div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-comment"><pre><span></span><span class="c1"># align the reads to the reference genome</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>20</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="c1"># align the reads to the reference genome</span>
 </pre></div>
-
-<div class="source blob-code sos-statement"><pre><span></span><span class="n">sample_type</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="s1">&#39;mutated&#39;</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>21</pre></div></td><td class="code"><div class="source blob-code sos-statement"><pre><span></span><span class="n">sample_type</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="s1">&#39;mutated&#39;</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">input:</span>    <span class="n">fasta_files</span><span class="p">,</span> <span class="kp">group_by</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="kp">paired_with</span><span class="o">=</span><span class="s1">&#39;sample_type&#39;</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>22
+23
+24</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">input:</span>    <span class="n">fasta_files</span><span class="p">,</span> <span class="kp">group_by</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="kp">paired_with</span><span class="o">=</span><span class="s1">&#39;sample_type&#39;</span>
 <span class="kn">depends:</span>  <span class="s1">&#39;STAR_index/chrName.txt&#39;</span>
 <span class="kn">output:</span>   <span class="p">[</span><span class="s1">&#39;aligned/control.out.tab&#39;</span><span class="p">,</span> <span class="s1">&#39;aligned/mutated.out.tab&#39;</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">run:</span>      <span class="kp">concurrent</span><span class="o">=</span><span class="bp">True</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>25</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">run:</span>      <span class="kp">concurrent</span><span class="o">=</span><span class="bp">True</span>
 </pre></div>
-
-<div class="source blob-code sos-script "><pre><span></span>STAR --genomeDir STAR_index --outSAMtype BAM SortedByCoordinate  --readFilesIn <span class="si">${</span><span class="nv">_input</span><span class="p">!q</span><span class="si">}</span>  <span class="se">\</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>26
+27
+28</pre></div></td><td class="code"><div class="source blob-code sos-script "><pre><span></span>STAR --genomeDir STAR_index --outSAMtype BAM SortedByCoordinate  --readFilesIn <span class="si">${</span><span class="nv">_input</span><span class="p">!q</span><span class="si">}</span>  <span class="se">\</span>
     --quantMode GeneCounts --outFileNamePrefix aligned/<span class="si">${</span><span class="nv">_sample_type</span><span class="si">}</span>
  
 </pre></div>
-
-<div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>29</pre></div></td><td class="code"><div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-comment"><pre><span></span><span class="c1"># compare expression values</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>30</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="c1"># compare expression values</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;myfigure.pdf&#39;</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>31</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;myfigure.pdf&#39;</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">R:</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>32</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">R:</span>
 </pre></div>
-
-<div class="source blob-code sos-script "><pre><span></span>control.count <span class="o">&lt;-</span> read.table<span class="p">(</span><span class="o">$</span><span class="p">{</span>input<span class="p">[</span><span class="m">0</span><span class="p">]})</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="source blob-code sos-script "><pre><span></span>control.count <span class="o">&lt;-</span> read.table<span class="p">(</span><span class="o">$</span><span class="p">{</span>input<span class="p">[</span><span class="m">0</span><span class="p">]})</span>
 mutated.count <span class="o">&lt;-</span> read.table<span class="p">(</span><span class="o">$</span><span class="p">{</span>input<span class="p">[</span><span class="m">1</span><span class="p">]})</span>
 <span class="c1"># normalize, compare, output etc, ignored.</span>
 pdf<span class="p">(</span><span class="s">&#39;${output}&#39;</span><span class="p">)</span>
 <span class="c1"># plot results</span>
 dev.off<span class="p">()</span>
 </pre></div>
-
+</td></tr>
 </table>
 </div>
 </div>

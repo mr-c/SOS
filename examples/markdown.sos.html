@@ -472,7 +472,13 @@ body {
   </div>
  <div itemprop="text" class="blob-wrapper data type-python">
 
-<table class="highlight tab-size js-file-line-container"><div class="source blob-code sos-comment"><pre><span></span><span class="ch">#!/usr/bin/env sos-runner</span>
+<table class="highlight tab-size js-file-line-container"><tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="ch">#!/usr/bin/env sos-runner</span>
 <span class="c1">#fileformat=SOS1.0</span>
  
 <span class="c1"># This is an example that demonstrate the use of markdown</span>
@@ -480,15 +486,29 @@ body {
  
  
 </pre></div>
-
-<div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>8</pre></div></td><td class="code"><div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-comment"><pre><span></span><span class="c1"># generate a markdown header.</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre> 9
+10</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="c1"># generate a markdown header.</span>
  
 </pre></div>
-
-<div class="source blob-code sos-report"><pre><span></span>! Title:   Use Markdown in SoS
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="source blob-code sos-report"><pre><span></span>! Title:   Use Markdown in SoS
 ! Summary: An example that uses both R and matplotlib
 ! Authors: Bo Peng
 !
@@ -503,21 +523,29 @@ body {
  
  
 </pre></div>
-
-<div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>25</pre></div></td><td class="code"><div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-comment"><pre><span></span><span class="c1"># Run a R code</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>26</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="c1"># Run a R code</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;test_plot.jpg&#39;</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>27
+28</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;test_plot.jpg&#39;</span>
  
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">R:</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>29</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">R:</span>
 </pre></div>
-
-<div class="source blob-code sos-script "><pre><span></span><span class="c1"># Define the cars vector with 5 values</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="source blob-code sos-script "><pre><span></span><span class="c1"># Define the cars vector with 5 values</span>
 cars <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">9</span><span class="p">)</span>
  
 <span class="c1"># Graph cars</span>
@@ -526,8 +554,14 @@ barplot<span class="p">(</span>cars<span class="p">)</span>
 dev.off<span class="p">()</span>
  
 </pre></div>
-
-<div class="source blob-code sos-script "><pre><span></span>! 
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="source blob-code sos-script "><pre><span></span>! 
 ! ## Histogram of cars
 !
 ! We ran some R script to produce a histogram
@@ -535,21 +569,34 @@ dev.off<span class="p">()</span>
 ! ![Car histogram.](<span class="cp">${</span><span class="n">output</span><span class="cp">}</span>)
  
 </pre></div>
-
-<div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>45</pre></div></td><td class="code"><div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-comment"><pre><span></span><span class="c1"># here is a figure generated using Python matplotlib</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>46
+47</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="c1"># here is a figure generated using Python matplotlib</span>
 <span class="c1">#</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;test.png&#39;</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>48</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;test.png&#39;</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">python:</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>49</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">python:</span>
 </pre></div>
-
-<div class="source blob-code sos-script "><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre></div></td><td class="code"><div class="source blob-code sos-script "><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
  
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
@@ -563,34 +610,40 @@ dev.off<span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;test.png&quot;</span><span class="p">)</span>
  
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">report:</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>63</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">report:</span>
 </pre></div>
-
-<div class="source blob-code sos-report"><pre><span></span> 
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>64
+65
+66
+67
+68</pre></div></td><td class="code"><div class="source blob-code sos-report"><pre><span></span> 
 ## Some random figure
  
 Generated by matplotlib
  
 </pre></div>
-
-<div class="source blob-code sos-script "><pre><span></span><span class="o">!</span><span class="p">[</span><span class="n">random</span> <span class="n">plot</span><span class="p">](</span><span class="err">$</span><span class="p">{</span><span class="n">output</span><span class="p">})</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>69
+70</pre></div></td><td class="code"><div class="source blob-code sos-script "><pre><span></span><span class="o">!</span><span class="p">[</span><span class="n">random</span> <span class="n">plot</span><span class="p">](</span><span class="err">$</span><span class="p">{</span><span class="n">output</span><span class="p">})</span>
  
 </pre></div>
-
-<div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">100</span><span class="p">]</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>71</pre></div></td><td class="code"><div class="source blob-code sos-header"><pre><span></span><span class="p">[</span><span class="mi">100</span><span class="p">]</span>
 </pre></div>
-
-<div class="source blob-code sos-comment"><pre><span></span><span class="c1"># generate report</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>72</pre></div></td><td class="code"><div class="source blob-code sos-comment"><pre><span></span><span class="c1"># generate report</span>
 </pre></div>
-
-<div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;myreport.html&#39;</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>73
+74</pre></div></td><td class="code"><div class="source blob-code sos-directive"><pre><span></span><span class="kn">output:</span> <span class="s1">&#39;myreport.html&#39;</span>
  
 </pre></div>
-
-<div class="source blob-code sos-statement"><pre><span></span><span class="kp">pandoc</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="n">_output</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
+</td></tr>
+<tr><td class="blob-num js-line-number"><div class="linenodiv"><pre>75</pre></div></td><td class="code"><div class="source blob-code sos-statement"><pre><span></span><span class="kp">pandoc</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="n">_output</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
 </pre></div>
-
+</td></tr>
 </table>
 </div>
 </div>
