@@ -4371,7 +4371,7 @@ sleep 9 seconds.
 
 <p>The header of script contains description of the workflow.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env sos-runner</span>
+<figure class="highlight"><pre><code class="language-sos" data-lang="sos"><span class="c">#!/usr/bin/env sos-runner</span>
 <span class="c">#fileformat=SOS1.0</span>
 
 <span class="c"># Workflow for a comprehensive analysis of paired-end RNA seq data</span>
@@ -5666,101 +5666,100 @@ sleep 9 seconds.
 
 <h2 id="workflow-to-install-required-tools">Workflow to install required tools</h2>
 
-<pre><code class="language-python">#!/usr/bin/env sos-runner
-#fileformat=SOS1.0
+<figure class="highlight"><pre><code class="language-sos" data-lang="sos"><span class="c">#!/usr/bin/env sos-runner</span>
+<span class="c">#fileformat=SOS1.0</span>
 
-#
-# Auxiliary steps to install required NGS tools if it is not avaible
-#
+<span class="c">#</span>
+<span class="c"># Auxiliary steps to install required NGS tools if it is not avaible</span>
+<span class="c">#</span>
 
-# default installation directory. This directory is recognized by
-# default by SoS so that commands installed would be immediately usable
-# by sos workflows. You can use commands such as
-#
-#    sudo sos run install_ngs install_fastqc --install-dir /usr/local/bin/
-#
-# to install programs in a different directory.
+<span class="c"># default installation directory. This directory is recognized by</span>
+<span class="c"># default by SoS so that commands installed would be immediately usable</span>
+<span class="c"># by sos workflows. You can use commands such as</span>
+<span class="c">#</span>
+<span class="c">#    sudo sos run install_ngs install_fastqc --install-dir /usr/local/bin/</span>
+<span class="c">#</span>
+<span class="c"># to install programs in a different directory.</span>
 
-parameter: install_dir  = '~/.sos/bin'
-parameter: download_dir = '~/.sos/bin/download'
+<span class="kn">parameter:</span> <span class="n">install_dir</span>  <span class="o">=</span> <span class="s">&#39;~/.sos/bin&#39;</span>
+<span class="kn">parameter:</span> <span class="n">download_dir</span> <span class="o">=</span> <span class="s">&#39;~/.sos/bin/download&#39;</span>
 
-[install_fastqc: provides=executable('fastqc')]
-ver = 'v0.11.5'
+<span class="p">[</span><span class="n">install_fastqc</span><span class="p">:</span> <span class="kp">provides</span><span class="o">=</span><span class="n">executable</span><span class="p">(</span><span class="s">&#39;fastqc&#39;</span><span class="p">)]</span>
+<span class="n">ver</span> <span class="o">=</span> <span class="s">&#39;v0.11.5&#39;</span>
 
-download: dest_dir=download_dir
-    http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_${ver}.zip
+<span class="kn">download:</span> <span class="n">dest_dir</span><span class="o">=</span><span class="n">download_dir</span>
+    <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">bioinformatics</span><span class="o">.</span><span class="n">babraham</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">uk</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">fastqc</span><span class="o">/</span><span class="n">fastqc_</span><span class="err">$</span><span class="p">{</span><span class="n">ver</span><span class="p">}</span><span class="o">.</span><span class="n">zip</span>
 
-warn_if(os.path.isdir('${install_dir!e}/FastQC_${ver}'),
-	"Replacing FastQC version ${ver} under ${install_dir!e}/FastQC_${ver}.")
+<span class="n">warn_if</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s">&#39;${install_dir!e}/FastQC_${ver}&#39;</span><span class="p">),</span>
+	<span class="s">&quot;Replacing FastQC version ${ver} under ${install_dir!e}/FastQC_${ver}.&quot;</span><span class="p">)</span>
 
-warn_if(os.path.isfile('${install_dir!e}/fastqc}'),
-	"Replacing fastqc command ${install_dir!e}/fastqc.")
+<span class="n">warn_if</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s">&#39;${install_dir!e}/fastqc}&#39;</span><span class="p">),</span>
+	<span class="s">&quot;Replacing fastqc command ${install_dir!e}/fastqc.&quot;</span><span class="p">)</span>
 
-run:    
-    cd ${install_dir!e} &amp;&amp; \
-    rm -rf ${install_dir!e}/FastQC_${ver} &amp;&amp; \
-	rm -f ${install_dir!e}/fastqc &amp;&amp; \
-    unzip -o ${download_dir!e}/fastqc_*.zip  &amp;&amp; \
-    mv ${install_dir!e}/FastQC ${install_dir!e}/FastQC_${ver} &amp;&amp; \
-    chmod 755 ${install_dir}/FastQC_${ver}/fastqc &amp;&amp; \
-    ln -s ${install_dir}/FastQC_${ver}/fastqc ${install_dir}
+<span class="kn">run:</span>    
+    <span class="n">cd</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span> <span class="o">&amp;&amp;</span> \
+    <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">FastQC_</span><span class="err">$</span><span class="p">{</span><span class="n">ver</span><span class="p">}</span> <span class="o">&amp;&amp;</span> \
+	<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">fastqc</span> <span class="o">&amp;&amp;</span> \
+    <span class="n">unzip</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">{</span><span class="n">download_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">fastqc_</span><span class="o">*.</span><span class="n">zip</span>  <span class="o">&amp;&amp;</span> \
+    <span class="n">mv</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">FastQC</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">FastQC_</span><span class="err">$</span><span class="p">{</span><span class="n">ver</span><span class="p">}</span> <span class="o">&amp;&amp;</span> \
+    <span class="n">chmod</span> <span class="mi">755</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="p">}</span><span class="o">/</span><span class="n">FastQC_</span><span class="err">$</span><span class="p">{</span><span class="n">ver</span><span class="p">}</span><span class="o">/</span><span class="n">fastqc</span> <span class="o">&amp;&amp;</span> \
+    <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="p">}</span><span class="o">/</span><span class="n">FastQC_</span><span class="err">$</span><span class="p">{</span><span class="n">ver</span><span class="p">}</span><span class="o">/</span><span class="n">fastqc</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="p">}</span>
 	
-[install_bowtie: provides=executable('bowtie')]
-download: dest_dir=download_dir
-    https://sourceforge.net/projects/bowtie-bio/files/bowtie/1.1.2/bowtie-1.1.2-macos-x86_64.zip
+<span class="p">[</span><span class="n">install_bowtie</span><span class="p">:</span> <span class="kp">provides</span><span class="o">=</span><span class="n">executable</span><span class="p">(</span><span class="s">&#39;bowtie&#39;</span><span class="p">)]</span>
+<span class="kn">download:</span> <span class="n">dest_dir</span><span class="o">=</span><span class="n">download_dir</span>
+    <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">bowtie</span><span class="o">-</span><span class="n">bio</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">bowtie</span><span class="o">/</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">bowtie</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">macos</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">zip</span>
 
-run:    workdir=download_dir
-    unzip bowtie-1.1.2-macos-x86_64.zip &amp;&amp; \
-	rm -rf ${install_dir!e}/bowtie-1.1.2 &amp;&amp; \
-    mv bowtie-1.1.2 ${install_dir!e} &amp;&amp; \
-	ln -s -f ${install_dir!e}/bowtie-1.1.2/* ${install_dir!e}
+<span class="kn">run:</span>    <span class="kp">workdir</span><span class="o">=</span><span class="n">download_dir</span>
+    <span class="n">unzip</span> <span class="n">bowtie</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">macos</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">zip</span> <span class="o">&amp;&amp;</span> \
+	<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">bowtie</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">2</span> <span class="o">&amp;&amp;</span> \
+    <span class="n">mv</span> <span class="n">bowtie</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">2</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span> <span class="o">&amp;&amp;</span> \
+	<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">f</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">bowtie</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">2</span><span class="o">/*</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span>
 
-[install_bowtie2: provides=executable('bowtie2')]
-download: dest_dir=download_dir
-    https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.2.9/bowtie2-2.2.9-macos-x86_64.zip
+<span class="p">[</span><span class="n">install_bowtie2</span><span class="p">:</span> <span class="kp">provides</span><span class="o">=</span><span class="n">executable</span><span class="p">(</span><span class="s">&#39;bowtie2&#39;</span><span class="p">)]</span>
+<span class="kn">download:</span> <span class="n">dest_dir</span><span class="o">=</span><span class="n">download_dir</span>
+    <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">bowtie</span><span class="o">-</span><span class="n">bio</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">bowtie2</span><span class="o">/</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">9</span><span class="o">/</span><span class="n">bowtie2</span><span class="o">-</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">9</span><span class="o">-</span><span class="n">macos</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">zip</span>
 
-run:    workdir=download_dir
-    unzip bowtie2-2.2.9-macos-x86_64.zip &amp;&amp; \
-	rm -rf ${install_dir!e}/bowtie2-2.2.9 &amp;&amp; \
-    mv bowtie2-2.2.9 ${install_dir!e} &amp;&amp; \
-	ln -s -f ${install_dir!e}/bowtie2-2.2.9/* ${install_dir!e}
+<span class="kn">run:</span>    <span class="kp">workdir</span><span class="o">=</span><span class="n">download_dir</span>
+    <span class="n">unzip</span> <span class="n">bowtie2</span><span class="o">-</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">9</span><span class="o">-</span><span class="n">macos</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">zip</span> <span class="o">&amp;&amp;</span> \
+	<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">bowtie2</span><span class="o">-</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">9</span> <span class="o">&amp;&amp;</span> \
+    <span class="n">mv</span> <span class="n">bowtie2</span><span class="o">-</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">9</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span> <span class="o">&amp;&amp;</span> \
+	<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">f</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">bowtie2</span><span class="o">-</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">9</span><span class="o">/*</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span>
 
 
-[install_tophat2: provides=executable('tophat2')]
-# install tophat 2, which requires bowtie2
-#
-# NOTE: The pre-compiled binary does not work well under mac so it is
-# highly recommened that you compile from source. However, compiling from
-# source requires xcode and boost, and the later is not among the easiest
-# software package to install
+<span class="p">[</span><span class="n">install_tophat2</span><span class="p">:</span> <span class="kp">provides</span><span class="o">=</span><span class="n">executable</span><span class="p">(</span><span class="s">&#39;tophat2&#39;</span><span class="p">)]</span>
+<span class="c"># install tophat 2, which requires bowtie2</span>
+<span class="c">#</span>
+<span class="c"># NOTE: The pre-compiled binary does not work well under mac so it is</span>
+<span class="c"># highly recommened that you compile from source. However, compiling from</span>
+<span class="c"># source requires xcode and boost, and the later is not among the easiest</span>
+<span class="c"># software package to install</span>
 
-depends:  executable('bowtie2')
+<span class="kn">depends:</span>  <span class="n">executable</span><span class="p">(</span><span class="s">&#39;bowtie2&#39;</span><span class="p">)</span>
 
-#download: dest_dir=download_dir
-#	https://ccb.jhu.edu/software/tophat/downloads/tophat-2.0.13.tar.gz
+<span class="c">#download: dest_dir=download_dir</span>
+<span class="c">#	https://ccb.jhu.edu/software/tophat/downloads/tophat-2.0.13.tar.gz</span>
 
-#run:	workdir=download_dir
-#	tar zxf tophat-2.0.13.tar.gz &amp;&amp; \
-#	cd tophat-2.0.13 &amp;&amp; \
-#	./configure --prefix=${os.path.dirname(install_dir)!e} &amp;&amp; \
-#	make -B &amp;&amp; make install
+<span class="c">#run:	workdir=download_dir</span>
+<span class="c">#	tar zxf tophat-2.0.13.tar.gz &amp;&amp; \</span>
+<span class="c">#	cd tophat-2.0.13 &amp;&amp; \</span>
+<span class="c">#	./configure --prefix=${os.path.dirname(install_dir)!e} &amp;&amp; \</span>
+<span class="c">#	make -B &amp;&amp; make install</span>
 	
-download: dest_dir=download_dir
-    https://ccb.jhu.edu/software/tophat/downloads/tophat-2.0.13.OSX_x86_64.tar.gz
+<span class="kn">download:</span> <span class="n">dest_dir</span><span class="o">=</span><span class="n">download_dir</span>
+    <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ccb</span><span class="o">.</span><span class="n">jhu</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">tophat</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span><span class="n">tophat</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="mf">13.</span><span class="n">OSX_x86_64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
 
-run:    workdir=download_dir
-    tar zxf tophat-2.0.13.OSX_x86_64.tar.gz &amp;&amp; \
-	rm -rf ${install_dir!e}/tophat-2.0.13.OSX_x86_64 &amp;&amp; \
-    mv tophat-2.0.13.OSX_x86_64 ${install_dir!e} &amp;&amp; \
-	ln -s -f ${install_dir!e}/tophat-2.0.13.OSX_x86_64/* ${install_dir!e}
+<span class="kn">run:</span>    <span class="kp">workdir</span><span class="o">=</span><span class="n">download_dir</span>
+    <span class="n">tar</span> <span class="n">zxf</span> <span class="n">tophat</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="mf">13.</span><span class="n">OSX_x86_64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">&amp;&amp;</span> \
+	<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">tophat</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="mf">13.</span><span class="n">OSX_x86_64</span> <span class="o">&amp;&amp;</span> \
+    <span class="n">mv</span> <span class="n">tophat</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="mf">13.</span><span class="n">OSX_x86_64</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span> <span class="o">&amp;&amp;</span> \
+	<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">f</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span><span class="o">/</span><span class="n">tophat</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="mf">13.</span><span class="n">OSX_x86_64</span><span class="o">/*</span> <span class="err">$</span><span class="p">{</span><span class="n">install_dir</span><span class="err">!</span><span class="n">e</span><span class="p">}</span>
 
 
-[install_rseqc: provides=executable('inner_distance.py')]
+<span class="p">[</span><span class="n">install_rseqc</span><span class="p">:</span> <span class="kp">provides</span><span class="o">=</span><span class="n">executable</span><span class="p">(</span><span class="s">&#39;inner_distance.py&#39;</span><span class="p">)]</span>
 
-run:
-	pip install RSeQC
+<span class="kn">run:</span>
+	<span class="n">pip</span> <span class="n">install</span> <span class="n">RSeQC</span></code></pre></figure>
 
-</code></pre>
 
                             </div>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
