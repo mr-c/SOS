@@ -1,0 +1,66 @@
+ <!-- Portfolio Modals -->
+ {% for documentation in site.documentation %}
+   <div class="portfolio-modal modal fade" id="{{ documentation.modal-id }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                 <div class="col-lg-8 col-lg-offset-2">
+                        <h1>{{ documentation.title }}</h1>
+                        <div class="modal-body">
+                         
+                            <hr class="star-primary">
+                            {{ documentation.content }}
+                            </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div> 
+                    <div class="footer-wrapper">
+                      <footer role="contentinfo">
+                        {% include footer.html %}
+                      </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+{% endfor %}
+
+ {% for tutorial in site.tutorial %}
+   <div class="portfolio-modal modal fade" id="{{ tutorial.modal-id }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                 <div class="col-lg-8 col-lg-offset-2">
+                        <h1>{{ tutorial.title }}</h1>
+                        <div class="modal-body">
+                         
+                            <hr class="star-primary">
+                            {{ tutorial.content }}
+                            </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div> 
+                    <div class="footer-wrapper">
+                      <footer role="contentinfo">
+                        {% include footer.html %}
+                      </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+{% endfor %}

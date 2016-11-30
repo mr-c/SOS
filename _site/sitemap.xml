@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://jma7.github.io/sos_wiki/home/</loc>
+<lastmod>2016-11-07T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://jma7.github.io/sos_wiki/404.html</loc>
+</url>
+<url>
+<loc>https://jma7.github.io/sos_wiki/posts/</loc>
+</url>
+<url>
+<loc>https://jma7.github.io/sos_wiki/</loc>
+</url>
+<url>
+<loc>https://jma7.github.io/sos_wiki/tags/</loc>
+</url>
+<url>
+<loc>https://jma7.github.io/sos_wiki/media/ex1.html</loc>
+<lastmod>2016-11-28T10:18:30-05:00</lastmod>
+</url>
+<url>
+<loc>https://jma7.github.io/sos_wiki/media/ex1_pandoc.html</loc>
+<lastmod>2016-11-28T10:18:30-05:00</lastmod>
+</url>
+<url>
+<loc>https://jma7.github.io/sos_wiki/media/update_toc.html</loc>
+<lastmod>2016-11-28T10:18:30-05:00</lastmod>
+</url>
+<url>
+<loc>https://jma7.github.io/sos_wiki/media/update_toc_pandoc.html</loc>
+<lastmod>2016-11-28T10:18:30-05:00</lastmod>
+</url>
+</urlset>

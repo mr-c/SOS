@@ -1,0 +1,4 @@
+
+		[pygments.lexers]
+		soslexer = soslexer.lexer:sosLexer
+	

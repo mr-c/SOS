@@ -1,0 +1,8 @@
+setup.py
+soslexer/__init__.py
+soslexer/lexer.py
+soslexer.egg-info/PKG-INFO
+soslexer.egg-info/SOURCES.txt
+soslexer.egg-info/dependency_links.txt
+soslexer.egg-info/entry_points.txt
+soslexer.egg-info/top_level.txt

@@ -1,0 +1,45 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include head.html %}
+</head>
+
+<body id="post-index" {% if page.image.feature %}class="feature"{% endif %}>
+
+{% include header.html %}
+{% include browser-upgrade.html %}
+
+
+
+    <section id="intro" class="bg-medium-gray">
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Introduction</h2>
+                </div>
+              </div>
+            <div class="row" id="main" role="main">
+                {{ content }}
+              </div><!-- /#main -->
+          </div>
+        </section>  
+
+{% include documentation.html %}
+{% include tutorial.html %}
+{% include team.html %}
+{% include contact.html %}
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    {% include footer.html %}
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+{% include modals.html %}
+{% include scripts.html %}          
+
+</body>
+</html>
