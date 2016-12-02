@@ -1,2 +1,9 @@
-_site/*.xml
+*.gem
+*.swp
+*~
 .DS_Store
+_site/
+pkg/
+site/_site/
+test/dest
+tmp/*
